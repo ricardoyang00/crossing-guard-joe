@@ -276,6 +276,9 @@ and so we couldn't write tests to kill the mutations in those parts.
 ### Link to mutation testing report
 - [Pit Test Coverage Report](pitest/index.html)
 
+### Coverage
+![](images/Coverage_test.png)
+
 ## SELF-EVALUATION
 
 - Bruno Huang: 50%
