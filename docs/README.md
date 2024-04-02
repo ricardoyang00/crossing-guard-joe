@@ -247,10 +247,11 @@ This helped us to stop/pause some sounds from different classes from the one it 
 3. In viewer classes we use magic numbers without explanation to position the images on screen.
 
 ## ERROR-PRONE WARNINGS
-
+```
 src\main\java\com\CrossingGuardJoe\Game.java:22:
 [JdkObsolete] Stack is a nonstandard class that predates the Java Collections Framework; prefer ArrayDeque. Note that the Stack methods push/pop/peek correspond to the Deque methods addFirst/removeFirst/peekFirst.
 stateStack = new Stack<>();
+```
 
 For [JdkObsolete] warnings, we didn't change to ArrayDequeue because after putting states in ArrayDequeue we faced the problem of nullpointer when exiting the game, and since we didn't learn about this data structure we didn't know how to fix it,
 and we were afraid of further problems given by it.
