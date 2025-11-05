@@ -5,6 +5,8 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.InputStream;
+import java.io.BufferedInputStream;
+import java.io.IOException;
 
 public class Sounds {
     private final Clip sound;
@@ -20,14 +22,23 @@ public class Sounds {
         this.sound = loadSound(sound);
     }
 
-    private Clip loadSound(String sound) {
+    private Clip loadSound(String soundPath) {
         try {
-            InputStream audioInputStream = getClass().getClassLoader().getResourceAsStream(sound);
-            Clip clip = AudioSystem.getClip();
-            AudioInputStream ais = AudioSystem.getAudioInputStream(audioInputStream);
-            clip.open(ais);
-            return clip;
+            InputStream rawStream = getClass().getResourceAsStream(soundPath);
+            if (rawStream == null) {
+                throw new IOException("Sound file not found: " + soundPath);
+            }
+
+            try (BufferedInputStream bufferedStream = new BufferedInputStream(rawStream);
+                 AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedStream)) {
+
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioStream);
+                return clip;
+            }
+
         } catch (Exception e) {
+            System.err.println("Failed to load sound: " + soundPath);
             e.printStackTrace();
             return null;
         }

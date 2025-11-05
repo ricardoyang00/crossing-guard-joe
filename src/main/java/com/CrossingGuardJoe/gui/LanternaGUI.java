@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.io.InputStream;
 
 public class LanternaGUI implements GUI {
     private TextGraphics graphics;
@@ -68,15 +69,18 @@ public class LanternaGUI implements GUI {
 
     @DoNotMutate
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/VCR_OSD_MONO_1.001.ttf");
-        File fontFile = new File(resource.toURI());
-        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+        try (InputStream fontStream = getClass().getResourceAsStream("/fonts/VCR_OSD_MONO_1.001.ttf")) {
+            if (fontStream == null) {
+                throw new IOException("Font resource not found: /fonts/VCR_OSD_MONO_1.001.ttf");
+            }
 
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(font);
+            Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 2);
-        return AWTTerminalFontConfiguration.newInstance(loadedFont);
+            Font loadedFont = font.deriveFont(Font.PLAIN, 2);
+            return AWTTerminalFontConfiguration.newInstance(loadedFont);
+        }
     }
 
     @Override

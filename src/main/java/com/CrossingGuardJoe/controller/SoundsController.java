@@ -16,32 +16,32 @@ public class SoundsController {
     private static SoundsController soundsController;
 
     private SoundsController() {
-        menuBgm = new Sounds("sounds/bgm/MENUBGM.wav");
-        gameBgm = new Sounds("sounds/bgm/GAMEBGM.wav");
-        customizeBgm = new Sounds("sounds/bgm/CUSTOMIZEBGM.wav");
-        instructionsBgm = new Sounds("sounds/bgm/INSTRUCTIONSBGM.wav");
+        menuBgm = new Sounds("/sounds/bgm/MENUBGM.wav");
+        gameBgm = new Sounds("/sounds/bgm/GAMEBGM.wav");
+        customizeBgm = new Sounds("/sounds/bgm/CUSTOMIZEBGM.wav");
+        instructionsBgm = new Sounds("/sounds/bgm/INSTRUCTIONSBGM.wav");
 
-        select = new Sounds("sounds/menu/SELECT.wav");
-        enter = new Sounds("sounds/menu/ENTER.wav");
-        flipPage = new Sounds("sounds/menu/FLIPPAGE.wav");
+        select = new Sounds("/sounds/menu/SELECT.wav");
+        enter = new Sounds("/sounds/menu/ENTER.wav");
+        flipPage = new Sounds("/sounds/menu/FLIPPAGE.wav");
 
-        levelUp = new Sounds("sounds/game/LEVELUP.wav");
+        levelUp = new Sounds("/sounds/game/LEVELUP.wav");
 
-        joePass1 = new Sounds("sounds/game/joe/JOEPASS1.wav");
-        joePass2 = new Sounds("sounds/game/joe/JOEPASS2.wav");
-        joeStop = new Sounds("sounds/game/joe/JOESTOP.wav");
-        joeHit = new Sounds("sounds/game/joe/JOEHIT.wav");
+        joePass1 = new Sounds("/sounds/game/joe/JOEPASS1.wav");
+        joePass2 = new Sounds("/sounds/game/joe/JOEPASS2.wav");
+        joeStop = new Sounds("/sounds/game/joe/JOESTOP.wav");
+        joeHit = new Sounds("/sounds/game/joe/JOEHIT.wav");
 
-        kidWalk1 = new Sounds("sounds/game/kid/KIDWALK1.wav");
-        kidStop1 = new Sounds("sounds/game/kid/KIDSTOP1.wav");
-        kidStop2 = new Sounds("sounds/game/kid/KIDSTOP2.wav");
-        kidHit = new Sounds("sounds/game/kid/KIDHIT.wav");
-        kidScore = new Sounds("sounds/game/kid/KIDSCORE.wav");
+        kidWalk1 = new Sounds("/sounds/game/kid/KIDWALK1.wav");
+        kidStop1 = new Sounds("/sounds/game/kid/KIDSTOP1.wav");
+        kidStop2 = new Sounds("/sounds/game/kid/KIDSTOP2.wav");
+        kidHit = new Sounds("/sounds/game/kid/KIDHIT.wav");
+        kidScore = new Sounds("/sounds/game/kid/KIDSCORE.wav");
 
-        carBreak = new Sounds("sounds/game/car/CARBREAK.wav");
+        carBreak = new Sounds("/sounds/game/car/CARBREAK.wav");
 
-        gameOver = new Sounds("sounds/game/GAMEOVER.wav");
-        victoryBgm = new Sounds("sounds/bgm/VICTORYBGM.wav");
+        gameOver = new Sounds("/sounds/game/GAMEOVER.wav");
+        victoryBgm = new Sounds("/sounds/bgm/VICTORYBGM.wav");
     }
 
     public static SoundsController getInstance() {
